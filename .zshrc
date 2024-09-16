@@ -20,23 +20,8 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-zplug "plugins/git",   from:oh-my-zsh
-zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-
-zplug load
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-
+# load in zplug
+[ -f ~/.zplug.sh ] && source ~/.zplug.sh
 
 # kill processes
 
@@ -62,6 +47,28 @@ function kp(){
 alias rzsh="source ~/.zshrc" # refresh zshrc
 alias drmi="docker rmi $(docker images -a -q)" # docker rm images
 alias drmc="docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)" # docker remove containers
-alias py="python3"
 alias kubectl="minikube kubectl --"
 
+alias py="python3"
+alias python="python3"
+alias pip="python3 -m pip"
+alias venv="source .venv/bin/activate"
+
+alias rzsh="source ~/.zshrc"
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+
+# zsh options: http://zsh.sourceforge.net/Doc/Release/Options.html
+setopt APPEND_HISTORY # adds history
+setopt HIST_IGNORE_ALL_DUPS # If a new command line being added to the history list duplicates an older one, the older command is removed from the list
+setopt HIST_IGNORE_SPACE # No history when starting command with space
+setopt HIST_SAVE_NO_DUPS # When writing out the history file, older commands that duplicate newer ones are omitted
+
+# Uncomment the following line to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+# key bindings
+bindkey '[C' forward-word   # alt+left
+bindkey '[D' backward-word  # alt+right
