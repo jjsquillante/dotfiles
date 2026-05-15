@@ -1,0 +1,45 @@
+# zshrc — interactive shell init.
+
+# --- oh-my-zsh ---
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME=""             # prompt comes from zplug → sindresorhus/pure
+plugins=(git)
+[ -f "$ZSH/oh-my-zsh.sh" ] && source "$ZSH/oh-my-zsh.sh"
+
+# --- zplug (plugins + pure prompt) ---
+[ -f "$HOME/.zplug.sh" ] && source "$HOME/.zplug.sh"
+
+# --- History ---
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
+setopt APPEND_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
+
+DISABLE_AUTO_TITLE="true"
+
+# --- Aliases ---
+alias rzsh="source ~/.zshrc"
+# Single-quoted so the $(...) is evaluated when the alias runs, not at shell startup.
+alias drmi='docker rmi $(docker images -a -q)'
+alias drmc='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
+
+# Claude Code
+alias cld="claude --dangerously-skip-permissions"
+
+# --- Project: assured-dev wtree (only if checkout exists) ---
+if [ -d "$HOME/Development/assured-dev/scripts/wtree" ]; then
+  alias wtree="$HOME/Development/assured-dev/scripts/wtree/wtree"
+  alias wtl="wtree list"
+  alias wtcd='cd $(wtree cd)'
+  alias clw='cd ~/Development/assured-dev/master && claude --dangerously-skip-permissions -w'
+  fpath=("$HOME/Development/assured-dev/scripts/wtree/completions" $fpath)
+fi
+
+# --- Completions (run once, after all fpath additions) ---
+autoload -Uz compinit && compinit
+
+# --- Local overrides + secrets (gitignored, not in dotfiles repo) ---
+[ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

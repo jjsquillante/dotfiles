@@ -1,0 +1,14 @@
+{
+  "security.workspace.trust.enabled": true,
+  "editor.fontSize": 12,
+  "editor.fontLigatures": true,
+  "editor.fontWeight": "400",
+  "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+  "security.workspace.trust.untrustedFiles": "open",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.tsserver.maxTsServerMemory": 8192,
+  "claude-code.useTerminal": true,
+  "workbench.colorTheme": "Atom One Dark",
+  "typescript.experimental.useTsgo": true,
+  "security.promptForLocalFileProtocolHandling": false,
+}

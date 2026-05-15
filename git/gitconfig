@@ -1,0 +1,36 @@
+[user]
+	name = James Squillante
+	email = james.squillante@assured.claims
+
+[alias]
+	co = checkout
+	s = status
+	d = diff
+	b = branch
+	p = pull --rebase origin master
+
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+
+[core]
+	excludesfile = ~/.config/git/ignore
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	light = false
+
+[diff]
+	colorMoved = default
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true
