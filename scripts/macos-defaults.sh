@@ -34,10 +34,8 @@ defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture disable-shadow -bool true
 
-log "Dock: autohide, faster animation, no recents"
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock autohide-delay -float 0
-defaults write com.apple.dock autohide-time-modifier -float 0.2
+log "Dock: always visible, no recents"
+defaults write com.apple.dock autohide -bool false
 defaults write com.apple.dock show-recents -bool false
 
 log "Safari + Misc: show full URLs, expanded save dialogs"
