@@ -47,7 +47,9 @@ brew "uv"
 # --- Containers / orchestration ---
 brew "colima"
 brew "docker"
+brew "docker-compose"
 brew "docker-credential-helper"
+brew "tilt"
 brew "kubernetes-cli"
 brew "minikube"
 
