@@ -6,10 +6,6 @@
 [includeIf "gitdir:~/Development/assured-dev/"]
 	path = ~/.gitconfig-work
 
-# Alt worktree location used by some setups.
-[includeIf "gitdir:~/Development/worktrees/"]
-	path = ~/.gitconfig-work
-
 [alias]
 	co = checkout
 	s = status
