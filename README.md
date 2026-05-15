@@ -34,7 +34,8 @@ After it finishes:
 | `zsh/zshrc`                | `~/.zshrc`                                      |
 | `zsh/zprofile`             | `~/.zprofile`                                   |
 | `zsh/zplug.sh`             | `~/.zplug.sh`                                   |
-| `git/gitconfig`            | `~/.gitconfig`                                  |
+| `git/gitconfig`            | `~/.gitconfig` (personal identity by default)   |
+| `git/gitconfig-work`       | `~/.gitconfig-work` (loaded for assured-dev)    |
 | `git/ignore`               | `~/.config/git/ignore`                          |
 | `tmux/tmux.conf`           | `~/.tmux.conf`                                  |
 | `ghostty/config`           | `~/.config/ghostty/config`                      |

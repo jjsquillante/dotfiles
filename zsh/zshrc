@@ -26,19 +26,7 @@ alias rzsh="source ~/.zshrc"
 alias drmi='docker rmi $(docker images -a -q)'
 alias drmc='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
-# Claude Code
-alias cld="claude --dangerously-skip-permissions"
-
-# --- Project: assured-dev wtree (only if checkout exists) ---
-if [ -d "$HOME/Development/assured-dev/scripts/wtree" ]; then
-  alias wtree="$HOME/Development/assured-dev/scripts/wtree/wtree"
-  alias wtl="wtree list"
-  alias wtcd='cd $(wtree cd)'
-  alias clw='cd ~/Development/assured-dev/master && claude --dangerously-skip-permissions -w'
-  fpath=("$HOME/Development/assured-dev/scripts/wtree/completions" $fpath)
-fi
-
-# --- Completions (run once, after all fpath additions) ---
+# --- Completions ---
 autoload -Uz compinit && compinit
 
 # --- Local overrides + secrets (gitignored, not in dotfiles repo) ---

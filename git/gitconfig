@@ -1,6 +1,14 @@
 [user]
 	name = James Squillante
-	email = james.squillante@assured.claims
+	email = jjsquillante@gmail.com
+
+# Use work identity for anything under the assured-dev tree (bare root + worktrees).
+[includeIf "gitdir:~/Development/assured-dev/"]
+	path = ~/.gitconfig-work
+
+# Alt worktree location used by some setups.
+[includeIf "gitdir:~/Development/worktrees/"]
+	path = ~/.gitconfig-work
 
 [alias]
 	co = checkout

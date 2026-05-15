@@ -118,8 +118,9 @@ link_all() {
   backup_and_link "$DOTFILES_DIR/zsh/zplug.sh" "$HOME/.zplug.sh"
 
   # git
-  backup_and_link "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig"
-  backup_and_link "$DOTFILES_DIR/git/ignore"    "$HOME/.config/git/ignore"
+  backup_and_link "$DOTFILES_DIR/git/gitconfig"      "$HOME/.gitconfig"
+  backup_and_link "$DOTFILES_DIR/git/gitconfig-work" "$HOME/.gitconfig-work"
+  backup_and_link "$DOTFILES_DIR/git/ignore"         "$HOME/.config/git/ignore"
 
   # tmux
   backup_and_link "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
