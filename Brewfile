@@ -12,6 +12,8 @@ brew "tmux"
 # --- Navigation / search ---
 brew "autojump"
 brew "fzf"
+brew "fd"
+brew "ripgrep"
 brew "bat"
 brew "git-delta"
 
@@ -28,21 +30,33 @@ brew "gnupg"
 brew "git"
 brew "gh"
 brew "glab"
+brew "lazygit"
 
 # --- Editors ---
 brew "neovim"
 
 # --- Languages / runtimes ---
 brew "nvm"
+brew "bun"
+brew "deno"
+brew "python@3.12"
 brew "uv"
 
-# --- Containers ---
+# --- Containers / orchestration ---
 brew "colima"
 brew "docker"
 brew "docker-credential-helper"
+brew "kubernetes-cli"
+brew "minikube"
 
 # --- Databases ---
 brew "postgresql@18"
+brew "pgvector"
+
+# --- Service CLIs ---
+brew "railway"
+brew "stripe"
+brew "semgrep"
 
 # --- Secrets / config ---
 brew "doppler"

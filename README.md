@@ -38,6 +38,7 @@ After it finishes:
 | `git/gitconfig-work`       | `~/.gitconfig-work` (loaded for assured-dev)    |
 | `git/ignore`               | `~/.config/git/ignore`                          |
 | `tmux/tmux.conf`           | `~/.tmux.conf`                                  |
+| `psql/psqlrc`              | `~/.psqlrc`                                     |
 | `ghostty/config`           | `~/.config/ghostty/config`                      |
 | `nvim/`                    | `~/.config/nvim`                                |
 | `cursor/settings.json`     | `~/Library/Application Support/Cursor/User/...` |

@@ -22,12 +22,18 @@ DISABLE_AUTO_TITLE="true"
 
 # --- Aliases ---
 alias rzsh="source ~/.zshrc"
+alias python="python3"
+alias pip="python3 -m pip"
+alias py="/opt/homebrew/bin/python3.12"
+alias venv="source .venv/bin/activate"
+alias pn="pnpm"
 # Single-quoted so the $(...) is evaluated when the alias runs, not at shell startup.
 alias drmi='docker rmi $(docker images -a -q)'
 alias drmc='docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q)'
 
 # --- Completions ---
 autoload -Uz compinit && compinit
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # --- Local overrides + secrets (gitignored, not in dotfiles repo) ---
 [ -f "$HOME/.zshrc.local" ] && source "$HOME/.zshrc.local"

@@ -125,6 +125,9 @@ link_all() {
   # tmux
   backup_and_link "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 
+  # psql
+  backup_and_link "$DOTFILES_DIR/psql/psqlrc" "$HOME/.psqlrc"
+
   # ghostty
   backup_and_link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 
