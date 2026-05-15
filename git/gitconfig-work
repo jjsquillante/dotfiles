@@ -1,0 +1,4 @@
+# Loaded by ~/.gitconfig via includeIf when working inside assured-dev paths.
+# Overrides only the fields that differ from personal defaults.
+[user]
+	email = james.squillante@assured.claims

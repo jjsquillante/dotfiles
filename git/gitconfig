@@ -1,0 +1,50 @@
+[user]
+	name = James Squillante
+	email = jjsquillante@gmail.com
+	signingkey = ~/.ssh/id_ed25519
+
+# Use work identity for anything under the assured-dev tree (bare root + worktrees).
+[includeIf "gitdir:~/Development/assured-dev/"]
+	path = ~/.gitconfig-work
+
+[gpg]
+	format = ssh
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true
+
+[alias]
+	co = checkout
+	s = status
+	d = diff
+	b = branch
+	p = pull --rebase origin master
+
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+
+[core]
+	excludesfile = ~/.config/git/ignore
+	pager = delta
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	light = false
+
+[diff]
+	colorMoved = default
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = true

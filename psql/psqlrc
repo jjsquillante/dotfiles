@@ -1,0 +1,9 @@
+-- Use unicode borders (cleaner look)
+\pset linestyle unicode
+\pset border 2
+
+-- Expanded display for wide tables (one row = vertical list)
+\x auto
+
+-- Use less with horizontal scrolling
+\setenv PAGER 'less -S'

@@ -1,0 +1,16 @@
+# Copy this file to ~/.zshrc.local on each new machine.
+# It's sourced at the end of ~/.zshrc and is gitignored — keep secrets here.
+#
+#   cp ~/Development/dotfiles/zsh/zshrc.local.example ~/.zshrc.local
+#   chmod 600 ~/.zshrc.local
+#   $EDITOR ~/.zshrc.local
+
+# --- Work credentials ---
+# export AUTH0_USER_EMAIL="you@example.com"
+# export AUTH0_USER_PASSWORD="..."
+# export NEW_RELIC_USER_API_KEY="NRAK-..."
+
+# --- Voice AI tuning ---
+# export VOICE_AI_REFRESH_MS=30000
+
+# --- Anything else machine-specific ---

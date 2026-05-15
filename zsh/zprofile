@@ -1,0 +1,19 @@
+# zprofile — runs once per login shell, before zshrc.
+# Keep environment that should propagate to non-interactive children here.
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
+# PATH
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@18/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Build flags (for libs that need them)
+export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
