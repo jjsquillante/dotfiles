@@ -3,6 +3,8 @@
 
 # --- Taps ---
 tap "dopplerhq/cli"
+tap "oven-sh/bun"
+tap "stripe/stripe-cli"
 
 # --- Shell + prompt ---
 brew "zsh"
