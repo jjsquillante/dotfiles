@@ -74,8 +74,30 @@ ensure_omz() {
   fi
 }
 
+# --- Node via nvm -----------------------------------------------------------
+ensure_node() {
+  export NVM_DIR="$HOME/.nvm"
+  mkdir -p "$NVM_DIR"
+  local nvm_sh="$(brew --prefix nvm 2>/dev/null)/nvm.sh"
+  if [ ! -s "$nvm_sh" ]; then
+    warn "nvm not installed via brew — skipping Node bootstrap"
+    return
+  fi
+  # shellcheck disable=SC1090
+  . "$nvm_sh"
+  if [ "$(nvm version default 2>/dev/null)" = "N/A" ] || ! command -v node >/dev/null 2>&1; then
+    log "Installing Node LTS via nvm"
+    nvm install --lts
+    nvm alias default 'lts/*'
+  else
+    ok "node present ($(node --version))"
+  fi
+}
+
 # --- AI CLIs (not in brew) --------------------------------------------------
 install_ai_clis() {
+  ensure_node
+
   if ! command -v claude >/dev/null 2>&1; then
     log "Installing Claude Code CLI"
     curl -fsSL https://claude.ai/install.sh | bash
