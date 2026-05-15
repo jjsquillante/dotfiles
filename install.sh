@@ -47,9 +47,21 @@ ensure_homebrew() {
 
 run_brew_bundle() {
   log "Running brew bundle"
+  # Cache sudo up-front so cask adoption (chmod on existing /Applications/*) works non-interactively.
+  if ! sudo -n true 2>/dev/null; then
+    log "Caching sudo credentials for cask adoption"
+    sudo -v
+  fi
+  ( while true; do sudo -n true; sleep 50; kill -0 "$$" 2>/dev/null || exit; done ) &
+  local sudo_keepalive=$!
+  trap 'kill $sudo_keepalive 2>/dev/null || true' EXIT
+
   brew update
   brew bundle --file="$DOTFILES_DIR/Brewfile"
   brew cleanup
+
+  kill "$sudo_keepalive" 2>/dev/null || true
+  trap - EXIT
 }
 
 # --- oh-my-zsh --------------------------------------------------------------
