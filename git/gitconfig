@@ -26,9 +26,6 @@
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 
-[url "https://github.com/"]
-	insteadOf = git@github.com:
-
 [core]
 	excludesfile = ~/.config/git/ignore
 	pager = delta
