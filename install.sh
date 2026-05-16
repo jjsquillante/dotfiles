@@ -122,6 +122,23 @@ install_ai_clis() {
   fi
 }
 
+# --- gh auth (avoids osxkeychain password prompts on every git push) --------
+# The gitconfig wires `gh auth git-credential` as the only credential helper
+# for github.com, but it only works once gh itself is logged in. Without this,
+# git falls through to Homebrew's system-level osxkeychain helper and macOS
+# starts popping the "enter login keychain password" dialog every push.
+ensure_gh_auth() {
+  if ! command -v gh >/dev/null 2>&1; then
+    warn "gh not on PATH — skipping auth check (Brewfile should have installed it)"
+    return
+  fi
+  if gh auth status >/dev/null 2>&1; then
+    ok "gh already authenticated"
+  else
+    warn "gh is not authenticated — run 'gh auth login' to stop osxkeychain prompts"
+  fi
+}
+
 # --- Symlinks ---------------------------------------------------------------
 backup_and_link() {
   local src="$1" dest="$2"
@@ -216,6 +233,7 @@ main() {
   if [ "$DO_CLIS" -eq 1 ]; then
     install_ai_clis
   fi
+  ensure_gh_auth
   if [ "$DO_SYMLINKS" -eq 1 ]; then
     link_all
     configure_iterm2
@@ -234,6 +252,7 @@ Next steps:
   2. Fill in secrets at ~/.zshrc.local (Auth0, NEW_RELIC, etc.).
   3. Restart iTerm2 so it loads prefs from the dotfiles repo.
   4. In Cursor: open the command palette → "Install cursor command" if the CLI is missing.
+  5. If not already done, run 'gh auth login' so git pushes don't trigger osxkeychain prompts.
 
 EOF
 }

@@ -16,6 +16,7 @@ After it finishes:
 2. Fill in secrets at `~/.zshrc.local` (gitignored, not in this repo).
 3. Restart iTerm2 so it picks up prefs from this repo.
 4. In Cursor: command palette → **Install cursor command** to put `cursor` on PATH.
+5. Run `gh auth login` so `git` uses the GitHub CLI as its credential helper for `github.com` (otherwise pushes fall back to Homebrew's system osxkeychain helper and macOS will prompt for the login keychain password on every push).
 
 ## What gets installed
 
