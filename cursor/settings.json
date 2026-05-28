@@ -9,6 +9,9 @@
   "typescript.tsserver.maxTsServerMemory": 8192,
   "claude-code.useTerminal": true,
   "workbench.colorTheme": "Atom One Dark",
-  "typescript.experimental.useTsgo": true,
+  // "typescript.experimental.useTsgo": true,
   "security.promptForLocalFileProtocolHandling": false,
+  "workbench.settings.applyToAllProfiles": [
+
+  ],
 }

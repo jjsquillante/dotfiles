@@ -179,6 +179,9 @@ link_all() {
   # psql
   backup_and_link "$DOTFILES_DIR/psql/psqlrc" "$HOME/.psqlrc"
 
+  # pgcli
+  backup_and_link "$DOTFILES_DIR/pgcli/config" "$HOME/.config/pgcli/config"
+
   # ghostty
   backup_and_link "$DOTFILES_DIR/ghostty/config" "$HOME/.config/ghostty/config"
 

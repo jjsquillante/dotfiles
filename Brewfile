@@ -56,6 +56,8 @@ brew "minikube"
 # --- Databases ---
 brew "postgresql@18"
 brew "pgvector"
+brew "pgcli"    # better psql: autocomplete, syntax highlighting, smarter prompt
+brew "pspg"     # tabular pager used by psql/pgcli for navigable result sets
 
 # --- Service CLIs ---
 brew "railway"
